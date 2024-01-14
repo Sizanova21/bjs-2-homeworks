@@ -1,14 +1,12 @@
 function getArrayParams(...arr) {
-	let avg;
-	let sumElements;
-	min = Math.min(...arr);
-	max = Math.max(...arr);
+	let min = Math.min(...arr);
+	let max = Math.max(...arr);
 
-	sumElements = arr.reduce(
+	let sumElements = arr.reduce(
 		(accumulator, currentValue) => accumulator + currentValue,
 		0,
 	);
-	avg = +(sumElements / arr.length).toFixed(2);
+	let avg = +(sumElements / arr.length).toFixed(2);
 	return {
 		min: min,
 		max: max,
@@ -17,16 +15,14 @@ function getArrayParams(...arr) {
 }
 
 function summElementsWorker(...arr) {
-	let sumElements = arr.length == 0 ? 0 : arr.reduce(
+	return arr.length !== 0 ? arr.reduce(
 		(accumulator, currentValue) => accumulator + currentValue,
 		0,
-	);
-	return sumElements;
+	) : 0;
 }
 
 function differenceMaxMinWorker(...arr) {
-	let difference = arr.length == 0 ? 0 : Math.max(...arr) - Math.min(...arr);
-	return difference;
+	return arr.length !== 0 ? Math.max(...arr) - Math.min(...arr) : 0;
 }
 
 function differenceEvenOddWorker(...arr) {
