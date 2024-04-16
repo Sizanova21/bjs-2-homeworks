@@ -1,7 +1,6 @@
 function getArrayParams(...arr) {
 	let min = Math.min(...arr);
 	let max = Math.max(...arr);
-
 	let sumElements = arr.reduce(
 		(accumulator, currentValue) => accumulator + currentValue,
 		0,
