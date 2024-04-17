@@ -4,7 +4,7 @@ describe('Домашнее задание к лекции 5 «Классы»', (
     let printItem;
 
     beforeEach(function(){
-      printItem = new PrintEditionItem('Типовой школьный журнал', 2019, 102);
+     printItem = new PrintEditionItem("Типовой школьный журнал", 2019, 102);
     });
 
     it('создание печатного издания', () => {
