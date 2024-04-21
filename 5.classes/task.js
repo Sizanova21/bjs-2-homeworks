@@ -29,9 +29,7 @@ class PrintEditionItem {
 
 class Magazine extends PrintEditionItem {
 	constructor(name, releaseDate, pagesCount) {
-		super(name);
-		this.pagesCount = pagesCount;
-		this.releaseDate = releaseDate;
+		super(name, releaseDate, pagesCount);
 		this.state = 100;
 		this.type = 'magazine';
 	}
@@ -39,9 +37,7 @@ class Magazine extends PrintEditionItem {
 
 class Book extends PrintEditionItem {
 	constructor(author, name, releaseDate, pagesCount) {
-		super(name);
-		this.pagesCount = pagesCount;
-		this.releaseDate = releaseDate;
+		super(name, releaseDate, pagesCount);
 		this.state = 100;
 		this.author = author;
 		this.type = 'book';
@@ -50,33 +46,24 @@ class Book extends PrintEditionItem {
 
 class NovelBook extends Book {
 	constructor(author, name, releaseDate, pagesCount) {
-		super(author);
-		this.pagesCount = pagesCount;
-		this.releaseDate = releaseDate;
-		this.state = 100;
-		this.name = name;
+		super(author, name, releaseDate, pagesCount);
+        this.state = 100;
 		this.type = 'novel';
 	}
 }
 
 class FantasticBook extends Book {
 	constructor(author, name, releaseDate, pagesCount) {
-		super(author);
-		this.pagesCount = pagesCount;
-		this.releaseDate = releaseDate;
+		super(author,name, releaseDate, pagesCount);
 		this.state = 100;
-		this.name = name;
 		this.type = 'fantastic';
 
 	}
 }
 class DetectiveBook extends Book {
 	constructor(author, name, releaseDate, pagesCount) {
-		super(author);
-		this.pagesCount = pagesCount;
-		this.releaseDate = releaseDate;
+		super(author, name, releaseDate, pagesCount);
 		this.state = 100;
-		this.name = name;
 		this.type = 'detective';
 
 	}
@@ -100,11 +87,16 @@ class Library {
 	}
 
 	giveBookByName(bookName) {
-		const book = this.findBookBy('name', bookName);
+		/*const book = this.findBookBy('name', bookName);
 		if (book) {
 			this.books.splice(this.books.indexOf(book), 1);
 		}
+		return book;*/
+		const book = this.findBookBy("name", bookName);
+		if (!book) return null;
+			this.books = this.books.filter((item) => item.name !== bookName);
 		return book;
+		
 	}
 
 }
@@ -158,3 +150,13 @@ console.log(library.findBookBy("releaseDate", 1924).name); //"Мурзилка"
 console.log("Количество книг до выдачи: " + library.books.length); //Количество книг до выдачи: 4
 library.giveBookByName("Машина времени");
 console.log("Количество книг после выдачи: " + library.books.length); //Количество книг после выдачи: 3
+
+// Задание №3
+
+class Student{
+	constructor(name){
+		this.name = name;
+		this.marks = [];
+	}
+
+}
